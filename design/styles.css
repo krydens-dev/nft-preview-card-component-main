@@ -4,6 +4,8 @@
     --clr-nft-title: hsl(0 100% 100%);
     --font-outfit: "Outfit", sans-serif;
     --clr-product: hsl(215 51% 70%);
+    --clr-cyan: hsl(178 100% 50%);
+    --clr-divider: hsl(215 32% 27%);
 }
 
 * {
@@ -32,11 +34,52 @@ main {
     border-radius: .94rem;
 }
 
+
 .product-image {
     max-width: 100%;
     border-radius: .5rem;
-    margin-bottom: 1.5rem;
 }
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background-color: cyan;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+}
+
+.tool{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+
+}
+
+.eye {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+}
+
+.tool:hover .eye{
+    opacity: 1;
+}
+
+.tool:hover .overlay {
+    opacity: 0.5;
+    transform: scale(1);
+    border-radius: .5rem;     
+}
+
+
+
+
 
 h1 {
     color: var(--clr-nft-title);
@@ -56,23 +99,58 @@ h1 {
 .information {
     display: flex;
     justify-content: space-between;
-    border: 1px solid red;
 }
-
+ /* Same properties*/
 .left {
-    border: 1px solid yellow;
     display: flex;
     align-items: center;
     gap: .5rem;
 }
 
-.left img {
-    border: 1px solid orange;
+.right {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
 }
 
 .left p {
-    border: 1px solid purple;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--clr-cyan);
 }
 
+.right p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--clr-product);
+}
 
+hr {
+    margin: 1.5rem 0;
+    border: none;
+    border-top: 1px solid var(--clr-divider);
+}
 
+.bottom {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-icon {
+    width: 33px;
+    height: 33px;
+    border: 1px solid var(--clr-nft-title);
+    border-radius: 50%;
+}
+
+.bottom-text {
+    color: var(--clr-product);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.name {
+    color: var(--clr-nft-title);
+    margin-left: .5rem;
+}
