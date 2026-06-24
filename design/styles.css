@@ -1,9 +1,9 @@
 :root {
     --clr-bg: hsl(217 54% 11%);
     --clr-card: hsl(216 50% 16%);
-    --clr-nft-title: hsl(0 100% 100%);
+    --clr-white: hsl(0 100% 100%);
     --font-outfit: "Outfit", sans-serif;
-    --clr-product: hsl(215 51% 70%);
+    --clr-text-muted: hsl(215 51% 70%);
     --clr-cyan: hsl(178 100% 50%);
     --clr-divider: hsl(215 32% 27%);
 }
@@ -27,13 +27,12 @@ main {
     min-height: 100dvh;
 }
 
-.card {
+.product-card {
     max-width: 21.875rem;
     background-color: var(--clr-card);
     padding: 1.5rem;
-    border-radius: .94rem;
+    border-radius: 1rem;
 }
-
 
 .product-image {
     max-width: 100%;
@@ -43,13 +42,13 @@ main {
 .overlay {
     position: absolute;
     inset: 0;
-    background-color: cyan;
+    background-color: var(--clr-cyan);
     opacity: 0;
     transform: scale(0);
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out, border-radius 0.3s ease-in-out;
 }
 
-.tool{
+.image-wrapper{
     position: relative;
     display: flex;
     flex-direction: column;
@@ -57,100 +56,99 @@ main {
     align-items: center;
     margin-bottom: 1.5rem;
     cursor: pointer;
-
 }
 
-.eye {
+.view-icon {
     position: absolute;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-
 }
 
-.tool:hover .eye{
+.image-wrapper:hover .view-icon{
     opacity: 1;
 }
 
-.tool:hover .overlay {
+.image-wrapper:hover .overlay {
     opacity: 0.5;
     transform: scale(1);
     border-radius: .5rem;     
 }
 
 
-
-
-
-h1 {
-    color: var(--clr-nft-title);
+.product-title {
+    display: inline-block;
+    color: var(--clr-white);
     font-size: 1.375rem;
     font-weight: 600;
     margin-bottom: 1rem;
+}
+
+.hoverable {
+    cursor: pointer;
+    transition: color .4s ease;
+}
+
+.hoverable:hover {
+    color: var(--clr-cyan);
 }
 
 .product-description {
     line-height: 1.625rem;
     font-size: 1.125rem;
     font-weight: 300;
-    color: var(--clr-product);
+    color: var(--clr-text-muted);
     margin-bottom: 1.5rem;
 }
 
-.information {
+.content-wrapper {
     display: flex;
     justify-content: space-between;
 }
- /* Same properties*/
-.left {
+
+.flex-center {
     display: flex;
     align-items: center;
     gap: .5rem;
 }
 
-.right {
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-.left p {
+ .price {
     font-size: 1rem;
     font-weight: 600;
     color: var(--clr-cyan);
 }
 
-.right p {
+.time-left {
     font-size: 1rem;
     font-weight: 400;
-    color: var(--clr-product);
+    color: var(--clr-text-muted);
 }
 
-hr {
+.divider {
     margin: 1.5rem 0;
     border: none;
     border-top: 1px solid var(--clr-divider);
 }
 
-.bottom {
+.user-section {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.profile-icon {
-    width: 33px;
-    height: 33px;
-    border: 1px solid var(--clr-nft-title);
+.user-avatar {
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--clr-white);
     border-radius: 50%;
 }
 
-.bottom-text {
-    color: var(--clr-product);
+.user-meta {
+    color: var(--clr-text-muted);
     font-weight: 400;
     font-size: 1rem;
 }
 
-.name {
-    color: var(--clr-nft-title);
+.user-name {
+    color: var(--clr-white);
     margin-left: .5rem;
 }
